@@ -1,0 +1,56 @@
+<div *ngIf="data_ready==true" class="container-xl">
+  <div class="card" style="width: 30rem;">
+   <div class="card-body">
+      <h5 class="card-title">{{ current_user.fullname}}</h5>
+      <br>
+      <p class="card-text">Email :  {{ current_user.email}}</p>
+      <p class="card-text">Mobile : {{ current_user.mobile}}</p>
+      <br>
+      <h5 class="card-title">Détails de la carte</h5>
+      <br>
+      <div class="radio float-sm-left">
+         <label><input type="radio" name="optradio" checked>  Carte de crédit</label>
+       </div>
+       <div class="radio float-sm-left" style="margin-left: 5%;">
+         <label><input type="radio" name="optradio">  Carte de débit</label>
+       </div>
+       <br>
+      <input class="form-control mr-sm-2" type="text" placeholder="Nom carte" aria-label="card_name" name="card_name">
+      <input class="form-control mr-sm-2" type="text" placeholder="Numero carte" aria-label="card_number" name="card_number">
+      <input class="form-control float-sm-left" type="text" placeholder="Mois" aria-label="card_name" name="card_name" style="width: 28%;">
+      <input class="form-control float-sm-left" type="text" placeholder="Année" aria-label="card_name" name="card_name" style="width: 28%; margin-left: 7%">
+      <input class="form-control float-sm-right" type="text" placeholder="CCV" aria-label="card_name" name="card_name" style="width: 30%; margin-left: 7%">
+    </div>
+  </div>
+  <div class="card" style="width: 24rem;">
+    <div id="pay" class="card-body">
+      <h5 class="card-title">Résumé de paiement</h5>
+      <br>
+      <h6 class="card-title">Formation sélectionné</h6>
+      <p class="card-text">{{selected_course.coursename}}</p>
+      <br>
+      <table class="table">
+        <tbody>
+        <tr>
+          <td><p class="card-text"> Montant original :</p></td>
+          <td><p class="card-text">DT {{selected_course.price}}</p></td>
+        </tr>
+        <tr>
+          <td><p class="card-text"> Montant de la remise :</p></td>
+          <td><p class="card-text">DT 0</p></td>
+        </tr>
+        <tr>
+          <td><p class="card-text"> GST (18%) :</p></td>
+          <td><p class="card-text">DT {{gstprice}}</p></td>
+        </tr>
+        <tr>
+          <td><h6 class="card-text"> Montant total :</h6></td>
+          <td><p class="card-text">DT {{ total_price }}</p></td>
+        </tr>
+        </tbody>
+      </table>
+      <br>
+      <button (click)="doPayment()" class="btn btn-primary" style="margin-left: 23.5%">Procéder au paiement</button>
+    </div>
+  </div>
+</div>
